@@ -27,13 +27,58 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>Set Product Inventory</h1>
+        <ul>
+          <li>
+            <h1>Set Product Inventory</h1>
 
-<p>Send us inventory details for all the products. It will help us provide you with better analysis on what to keep on in your inventory so that you never run out of stock or pile it up.
-<code>MWSDK.inventory(product_id, count);</code></p>
+            <p>
+              Send us inventory details for all the products. It will help us provide you with better analysis on what to keep on in your inventory so that you never run out of stock or pile it up.
+              <code>MWSDK.inventory(product_id, count);</code>
+            </p>
 
-<p><code>product_id</code> The unique identifier of the product of the product you want us to track.
-<code>count</code> The count of items remaining in the stock</p>
+            <p>
+              <code>product_id</code> The unique identifier of the product of the product you want us to track.
+            </p>
+            <p>
+              <code>count</code> The count of items remaining in the stock
+            </p>
+            
+          </li>
+
+          <li>
+            <h1>Set Customer Email</h1>
+
+            <p>
+              Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.
+              <code>MWSDK.setUser(email_id);</code>
+            </p>
+
+            <p>
+              <code>email_id</code> Email Id of the signed in customer
+            </p>
+            
+          </li>
+          <li>
+            <h1>Set Order Status</h1>
+
+            <p>
+              Users might be visiting your website to check the order status. We can guide while they are at it. Send us order status details when a user lands on your page.
+              <code>MWSDK.orderStatus(email_id, order_id, order_status);</code>
+            </p>
+
+            <p>
+              <code>email_id</code> Email Id of the signed in customer
+            </p>
+            <p>
+              <code>order_id</code> Order Id of the signed in customer
+            </p>
+            <p>
+              <code>order_status</code> Order Status of the Order Id
+            </p>
+            
+          </li>
+
+        </ul>
       </section>
     </div>
 
