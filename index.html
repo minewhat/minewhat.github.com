@@ -79,12 +79,11 @@ _mwapi.push(['setUser', email_id]);</code> </li>
 
             <p>
               Users might be visiting your website to check the order status. We can guide while they are at it. Send us order status details when a user lands on your page.
-              <code>MWSDK.orderStatus(email_id, order_id, order_status);</code>
               <ul>
                <li>SDK JS: <br><code>MWSDK.orderStatus(email_id, order_id, order_status);</code> </li>
                <li>SCRIPT JS: <br><code>window._mwapi = window._mwapi || [];<br>
 _mwapi.push(['orderStatus',email_id, order_id, order_status ]);</code> </li>
-               <li>REST: <br><code>https://engage.minewhat.com/api/updateOrderInfo/?c=customer_id&email=email_id&email=email_id&order=order_id&status=order_status</code> </li>
+               <li>REST: <br><code>https://engage.minewhat.com/api/updateOrderInfo/?c=customer_id&email=email_id&order=order_id&status=order_status</code> </li>
              </ul>
             </p>
 
