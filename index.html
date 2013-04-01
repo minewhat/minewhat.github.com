@@ -27,20 +27,31 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <ul>
+        <ul style='list-style:none'>
           <li>
             <h3>Set Product Inventory</h3>
 
             <p>
               Send us inventory details for all the products. It will help us provide you with better analysis on what to keep on in your inventory so that you never run out of stock or pile it up.
-              <code>MWSDK.inventory(product_id, count);</code>
+              <ul>
+               <li>SDK JS: <br><code>MWSDK.inventory(product_id, sku , quantity);</code> </li>
+               <li>SCRIPT JS: <br><code>window._mwapi = window._mwapi || [];<br>
+_mwapi.push(['inventory', product_id , sku , quantity ]);</code> </li>
+               <li>REST: <br><code>https://engage.minewhat.com/api/updateinv/?c=customer_id&pid=product_id&sku=sku&qty=quantity</code> </li>
+             </ul>
             </p>
 
+            <p>
+              <code>customer_id</code> The unique identifier of the customer.Only used in REST calls, JS call internally use it.
+            </p>
             <p>
               <code>product_id</code> The unique identifier of the product of the product you want us to track.
             </p>
             <p>
-              <code>count</code> The count of items remaining in the stock
+              <code>sku</code> The sku of the item 
+            </p>
+            <p>
+              <code>quantity</code> The quantity of items remaining in the stock
             </p>
             
           </li>
@@ -50,7 +61,12 @@
 
             <p>
               Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.
-              <code>MWSDK.setUser(email_id);</code>
+              <ul>
+               <li>SDK JS: <br><code>MWSDK.setuser(email_id);</code> </li>
+               <li>SCRIPT JS: <br><code>window._mwapi = window._mwapi || [];<br>
+_mwapi.push(['setUser', email_id]);</code> </li>
+               <li>REST: <br><code>https://engage.minewhat.com/api/updateCustomerInfo/?c=customer_id&uid=user_id&email=email_id</code> </li>
+             </ul>
             </p>
 
             <p>
@@ -64,6 +80,12 @@
             <p>
               Users might be visiting your website to check the order status. We can guide while they are at it. Send us order status details when a user lands on your page.
               <code>MWSDK.orderStatus(email_id, order_id, order_status);</code>
+              <ul>
+               <li>SDK JS: <br><code>MWSDK.orderStatus(email_id, order_id, order_status);</code> </li>
+               <li>SCRIPT JS: <br><code>window._mwapi = window._mwapi || [];<br>
+_mwapi.push(['orderStatus',email_id, order_id, order_status ]);</code> </li>
+               <li>REST: <br><code>https://engage.minewhat.com/api/updateOrderInfo/?c=customer_id&email=email_id&email=email_id&order=order_id&status=order_status</code> </li>
+             </ul>
             </p>
 
             <p>
@@ -73,7 +95,7 @@
               <code>order_id</code> Order Id of the signed in customer
             </p>
             <p>
-              <code>order_status</code> Order Status of the Order Id
+              <code>order_status</code> Order Status of the Order Id, 0 - RECEIVED , 1 - SHIPPED , 2 - DELIVERED , 3 - RETURN , 4 - RETURN_ACCEPTED
             </p>
             
           </li>
