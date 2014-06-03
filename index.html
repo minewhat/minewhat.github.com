@@ -1,116 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="MineWhat API : MineWhat Wiki to API Usage" />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <title>MineWhat API</title>
+
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="javascripts/all.js" type="text/javascript"></script>
+
   </head>
 
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/minewhat">View on GitHub</a>
-
-          <h1 id="project_title">MineWhat API</h1>
-          <h2 id="project_tagline">MineWhat Wiki to API Usage</h2>
-
-        </header>
+  <body class="index">
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" />
+        <div class="search">
+          <input type="text" class="search" id="input-search">
+        </div>
+        <div class="search-info"></div>
+      <div id="toc">
+      </div>
     </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <ul style='list-style:none'>
-          <li>
-            <h3>Set Product Inventory</h3>
+<p>MineWhat Wiki to API Usage</p>
 
-            <p>
-              Send us inventory details for all the products. It will help us provide you with better analysis on what to keep on in your inventory so that you never run out of stock or pile it up.
-              <ul>
-               <li>SDK JS: <br><code>MWSDK.inventory(product_id, sku , quantity);</code> </li>
-               <li>SCRIPT JS: <br><code>window._mwapi = window._mwapi || [];<br>
-_mwapi.push(['inventory', product_id , sku , quantity ]);</code> </li>
-               <li>REST: <br><code>https://engage.minewhat.com/api/updateinv/?c=customer_id&pid=product_id&sku=sku&qty=quantity</code> </li>
-             </ul>
-            </p>
+          <h1 id="collection">Collection</h1>
 
-            <p>
-              <code>customer_id</code> The unique identifier of the customer.Only used in REST calls, JS call internally use it.
-            </p>
-            <p>
-              <code>product_id</code> The unique identifier of the product of the product you want us to track.
-            </p>
-            <p>
-              <code>sku</code> The sku of the item 
-            </p>
-            <p>
-              <code>quantity</code> The quantity of items remaining in the stock
-            </p>
-            
-          </li>
+<h2 id="set-product-inventory">Set Product Inventory</h2>
 
-          <li>
-            <h3>Set Customer Email</h3>
+<blockquote>
+<p>SDK js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">inventory</span><span class="p">(</span><span class="nx">product_id</span><span class="p">,</span> <span class="nx">sku</span> <span class="p">,</span> <span class="nx">quantity</span><span class="p">);</span>
+</pre>
 
-            <p>
-              Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.
-              <ul>
-               <li>SDK JS: <br><code>MWSDK.setuser(email_id);</code> </li>
-               <li>SCRIPT JS: <br><code>window._mwapi = window._mwapi || [];<br>
-_mwapi.push(['setUser', email_id]);</code> </li>
-               <li>REST: <br><code>https://engage.minewhat.com/api/updateCustomerInfo/?c=customer_id&uid=user_id&email=email_id</code> </li>
-             </ul>
-            </p>
+<blockquote>
+<p>Script js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'inventory'</span><span class="p">,</span> <span class="nx">product_id</span> <span class="p">,</span> <span class="nx">sku</span> <span class="p">,</span> <span class="nx">quantity</span> <span class="p">]);</span>
+</pre>
 
-            <p>
-              <code>email_id</code> Email Id of the signed in customer
-            </p>
-            
-          </li>
-          <li>
-            <h3>Set Order Status</h3>
+<blockquote>
+<p>REST:</p>
+</blockquote>
+<pre class="highlight shell">https://engage.minewhat.com/api/updateinv/?c<span class="o">=</span>customer_id&amp;pid<span class="o">=</span>product_id&amp;sku<span class="o">=</span>sku&amp;qty<span class="o">=</span>quantity
+</pre>
 
-            <p>
-              Users might be visiting your website to check the order status. We can guide while they are at it. Send us order status details when a user lands on your page.
-              <ul>
-               <li>SDK JS: <br><code>MWSDK.orderStatus(email_id, order_id, order_status);</code> </li>
-               <li>SCRIPT JS: <br><code>window._mwapi = window._mwapi || [];<br>
-_mwapi.push(['orderStatus',email_id, order_id, order_status ]);</code> </li>
-               <li>REST: <br><code>https://engage.minewhat.com/api/updateOrderInfo/?c=customer_id&email=email_id&order=order_id&status=order_status</code> </li>
-             </ul>
-            </p>
+<p>Send us inventory details for all the products. It will help us provide you with better analysis on what to keep on in your inventory so that you never run out of stock or pile it up.</p>
 
-            <p>
-              <code>email_id</code> Email Id of the signed in customer
-            </p>
-            <p>
-              <code>order_id</code> Order Id of the signed in customer
-            </p>
-            <p>
-              <code>order_status</code> Order Status of the Order Id, 0 - RECEIVED , 1 - SHIPPED , 2 - DELIVERED , 3 - RETURN , 4 - RETURN_ACCEPTED
-            </p>
-            
-          </li>
+<h3 id="parameters">Parameters</h3>
 
-        </ul>
-      </section>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_id</td>
+<td>The unique identifier of the customer.Only used in REST calls, JS call internally use it.</td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>The unique identifier of the product of the product you want us to track.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>The sku of the item</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>The quantity of items remaining in the stock</td>
+</tr>
+</tbody></table>
+
+<h2 id="set-customer-email">Set Customer Email</h2>
+
+<blockquote>
+<p>SDK js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">setuser</span><span class="p">(</span><span class="nx">email_id</span><span class="p">);</span>
+</pre>
+
+<blockquote>
+<p>Script js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'setUser'</span><span class="p">,</span> <span class="nx">email_id</span><span class="p">]);</span>
+</pre>
+
+<blockquote>
+<p>REST:</p>
+</blockquote>
+<pre class="highlight shell">https://engage.minewhat.com/api/updateCustomerInfo/?c<span class="o">=</span>customer_id&amp;uid<span class="o">=</span>user_id&amp;email<span class="o">=</span>email_id
+</pre>
+
+<p>Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email_id</td>
+<td>Email Id of the signed in customer</td>
+</tr>
+</tbody></table>
+
+<h2 id="set-order-status">Set Order Status</h2>
+
+<blockquote>
+<p>SDK js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">orderStatus</span><span class="p">(</span><span class="nx">email_id</span><span class="p">,</span> <span class="nx">order_id</span><span class="p">,</span> <span class="nx">order_status</span><span class="p">);</span>
+</pre>
+
+<blockquote>
+<p>Script js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'orderStatus'</span><span class="p">,</span><span class="nx">email_id</span><span class="p">,</span> <span class="nx">order_id</span><span class="p">,</span> <span class="nx">order_status</span> <span class="p">]);</span>
+</pre>
+
+<blockquote>
+<p>REST:</p>
+</blockquote>
+<pre class="highlight shell">https://engage.minewhat.com/api/updateOrderInfo/?c<span class="o">=</span>customer_id&amp;email<span class="o">=</span>email_id&amp;order<span class="o">=</span>order_id&amp;status<span class="o">=</span>order_status
+</pre>
+
+<p>Users might be visiting your website to check the order status. We can guide while they are at it. Send us order status details when a user lands on your page.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email_id</td>
+<td>Email Id of the signed in customer</td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>Order Id of the signed in customer</td>
+</tr>
+<tr>
+<td>order_status</td>
+<td>Order Status of the Order Id, 0 - RECEIVED , 1 - SHIPPED , 2 - DELIVERED , 3 - RETURN , 4 - RETURN_ACCEPTED</td>
+</tr>
+</tbody></table>
+
+          <h1 id="automation">Automation</h1>
+
+      </div>
+      <div class="dark-box">
+      </div>
     </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
   </body>
 </html>
