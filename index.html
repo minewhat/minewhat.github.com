@@ -31,6 +31,294 @@
 
           <h1 id="collection">Collection</h1>
 
+<h2 id="track-product-view-event">Track Product View Event</h2>
+
+<blockquote>
+<p>SDK js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'product'</span><span class="p">,</span> <span class="nx">product_id</span><span class="p">,</span> <span class="nx">associated_ids</span><span class="p">);</span>
+</pre>
+
+<blockquote>
+<p>Script js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'product'</span><span class="p">,</span> <span class="nx">product_id</span><span class="p">,</span> <span class="nx">associated_ids</span><span class="p">]);</span>
+</pre>
+
+<p>Send us product view details. It will help us provide you with better analysis.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>The type of event to track(&lsquo;product&rsquo; in this case)</td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>The unique identifier of the product you want us to track.</td>
+</tr>
+<tr>
+<td>associated_ids</td>
+<td>The array of associated products</td>
+</tr>
+</tbody></table>
+
+<h3 id="associated-ids">Associated IDs</h3>
+
+<p>Array of associated products</p>
+
+<p>Example: [{id: product_id, sku: sku, price: price}, &hellip;.]</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>product_id</td>
+<td>The unique identifier of the product of the product you want us to track.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>The sku of the item</td>
+</tr>
+<tr>
+<td>price</td>
+<td>The price of product</td>
+</tr>
+</tbody></table>
+
+<h2 id="track-add-to-cart-event">Track Add To Cart Event</h2>
+
+<blockquote>
+<p>SDK js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'addtocart'</span><span class="p">,</span> <span class="nx">product_id</span><span class="p">,</span> <span class="nx">sku</span><span class="p">,</span> <span class="nx">parent_product_id</span><span class="p">,</span> <span class="nx">quantity</span><span class="p">,</span> <span class="nx">bundle</span><span class="p">);</span>
+</pre>
+
+<blockquote>
+<p>Script js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'addtocart'</span><span class="p">,</span> <span class="nx">product_id</span><span class="p">,</span> <span class="nx">sku</span><span class="p">,</span> <span class="nx">parent_product_id</span><span class="p">,</span> <span class="nx">quantity</span><span class="p">,</span> <span class="nx">bundle</span><span class="p">]);</span>
+</pre>
+
+<p>Send us add to cart details. It will help us provide you with better analysis.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>The type of event to track(&lsquo;addtocart&rsquo; in this case)</td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>The unique identifier of the product of the product you want us to track.</td>
+</tr>
+<tr>
+<td>parent_product_id</td>
+<td>The unique identifier of the parent product(incase of variant products) you want us to track.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>The sku of the item</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>The quantity of items remaining in the stock</td>
+</tr>
+<tr>
+<td>bundle</td>
+<td>The array of items in bundle</td>
+</tr>
+</tbody></table>
+
+<h3 id="bundle">Bundle</h3>
+
+<p>Array of individual products incase of bundle product</p>
+
+<p>Example: [{id: product_id, sku: sku, price: price}, &hellip;.]</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>product_id</td>
+<td>The unique identifier of the product of the product you want us to track.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>The sku of the item</td>
+</tr>
+<tr>
+<td>price</td>
+<td>The price of product</td>
+</tr>
+</tbody></table>
+
+<h2 id="track-cart-info">Track Cart Info</h2>
+
+<blockquote>
+<p>SDK js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'bag'</span><span class="p">,</span> <span class="s1">'mwdirect'</span><span class="p">,</span> <span class="nx">items</span><span class="p">);</span>
+</pre>
+
+<blockquote>
+<p>Script js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'bag'</span><span class="p">,</span> <span class="s1">'mwdirect'</span><span class="p">,</span> <span class="nx">items</span><span class="p">]);</span>
+</pre>
+
+<p>Send us cart details. It will help us provide you with better analysis.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>The type of event to track(&lsquo;bag&rsquo; in this case)</td>
+</tr>
+<tr>
+<td>items</td>
+<td>The products inside cart which you want us to track.</td>
+</tr>
+</tbody></table>
+
+<h3 id="items">Items</h3>
+
+<p>Array of products in the cart</p>
+
+<p>Example: [{id: product_id, sku: sku, qty: quantity, price: price, ppid: parent_product_id, bundle: bundle}, &hellip;.]</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>product_id</td>
+<td>The unique identifier of the product of the product you want us to track.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>The sku of the item</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>The quantity of items</td>
+</tr>
+<tr>
+<td>price</td>
+<td>The price of product</td>
+</tr>
+<tr>
+<td>parent_product_id</td>
+<td>The unique identifier of the parent product(incase of variant products) you want us to track.</td>
+</tr>
+<tr>
+<td>bundle</td>
+<td>The array of items in bundle</td>
+</tr>
+</tbody></table>
+
+<h2 id="track-buy-event">Track Buy Event</h2>
+
+<blockquote>
+<p>SDK js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'buy'</span><span class="p">,</span> <span class="s1">'mwdirect'</span><span class="p">,</span> <span class="nx">items</span><span class="p">);</span>
+</pre>
+
+<blockquote>
+<p>Script js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'buy'</span><span class="p">,</span> <span class="s1">'mwdirect'</span><span class="p">,</span> <span class="nx">items</span><span class="p">]);</span>
+</pre>
+
+<p>Send us purchase details. It will help us provide you with better analysis.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>The type of event to track(&lsquo;buy&rsquo; in this case)</td>
+</tr>
+<tr>
+<td>items</td>
+<td>The list of ordered products you want us to track.</td>
+</tr>
+</tbody></table>
+
+<h3 id="items">Items</h3>
+
+<p>Array of products bought</p>
+
+<p>Example: [{id: product_id, sku: sku, qty: quantity, price: price, ppid: parent_product_id, bundle: bundle}, &hellip;.]</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>product_id</td>
+<td>The unique identifier of the product of the product you want us to track.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>The sku of the item</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>The quantity of items</td>
+</tr>
+<tr>
+<td>price</td>
+<td>The price of product</td>
+</tr>
+<tr>
+<td>parent_product_id</td>
+<td>The unique identifier of the parent product(incase of variant products) you want us to track.</td>
+</tr>
+<tr>
+<td>bundle</td>
+<td>The array of items in bundle</td>
+</tr>
+</tbody></table>
+
 <h2 id="set-product-inventory">Set Product Inventory</h2>
 
 <blockquote>
@@ -49,7 +337,7 @@
 <blockquote>
 <p>REST:</p>
 </blockquote>
-<pre class="highlight shell">https://api.minewhat.com/v1/updateinv/?c<span class="o">=</span>customer_id&amp;pid<span class="o">=</span>product_id&amp;sku<span class="o">=</span>sku&amp;qty<span class="o">=</span>quantity
+<pre class="highlight shell">https://api.minewhat.com/v1/updateinv/?pid<span class="o">=</span>product_id&amp;sku<span class="o">=</span>sku&amp;qty<span class="o">=</span>quantity
 </pre>
 
 <p>Send us inventory details for all the products. It will help us provide you with better analysis on what to keep on in your inventory so that you never run out of stock or pile it up.</p>
@@ -62,10 +350,6 @@
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>customer_id</td>
-<td>The unique identifier of the customer.Only used in REST calls, JS call internally use it.</td>
-</tr>
 <tr>
 <td>product_id</td>
 <td>The unique identifier of the product of the product you want us to track.</td>
@@ -93,12 +377,6 @@
 </blockquote>
 <pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
 <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'setUser'</span><span class="p">,</span> <span class="nx">email_id</span><span class="p">]);</span>
-</pre>
-
-<blockquote>
-<p>REST:</p>
-</blockquote>
-<pre class="highlight shell">https://api.minewhat.com/v1/updateCustomerInfo/?c<span class="o">=</span>customer_id&amp;uid<span class="o">=</span>user_id&amp;email<span class="o">=</span>email_id
 </pre>
 
 <p>Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.</p>
@@ -132,12 +410,6 @@
 <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'orderStatus'</span><span class="p">,</span><span class="nx">email_id</span><span class="p">,</span> <span class="nx">order_id</span><span class="p">,</span> <span class="nx">order_status</span> <span class="p">]);</span>
 </pre>
 
-<blockquote>
-<p>REST:</p>
-</blockquote>
-<pre class="highlight shell">https://api.minewhat.com/v1/updateOrderInfo/?c<span class="o">=</span>customer_id&amp;email<span class="o">=</span>email_id&amp;order<span class="o">=</span>order_id&amp;status<span class="o">=</span>order_status
-</pre>
-
 <p>Users might be visiting your website to check the order status. We can guide while they are at it. Send us order status details when a user lands on your page.</p>
 
 <h3 id="parameters">Parameters</h3>
@@ -161,8 +433,6 @@
 <td>Order Status of the Order Id, 0 - RECEIVED , 1 - SHIPPED , 2 - DELIVERED , 3 - RETURN , 4 - RETURN_ACCEPTED</td>
 </tr>
 </tbody></table>
-
-          <h1 id="automation">Automation</h1>
 
       </div>
       <div class="dark-box">
