@@ -27,29 +27,327 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>MineWhat Wiki to API Usage</p>
+<h2 id="minewhat’s-api">MineWhat’s API</h2>
+
+<p>The MineWhat API is the interface that a developer can use to send or recieve and data from our system. We make periodical updates to the API. See the changelog for more details.</p>
+
+<h2 id="access">Access</h2>
+
+<p>All calls to the API require an access_token that defines the customer making the call. Any registered MineWhat user can get this token from the API settings page on their account</p>
+
+<p>You could use the API to either send transactional data to our servers and increase insight accuracy or you could use it to extract validated data from any of the insights. Please visit the website for more info on product features.</p>
 
           <h1 id="collection">Collection</h1>
 
-<h2 id="set-product-inventory">Set Product Inventory</h2>
+<h2 id="track-product-view-event">Track Product View Event</h2>
 
 <blockquote>
 <p>SDK js:</p>
 </blockquote>
-<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">inventory</span><span class="p">(</span><span class="nx">product_id</span><span class="p">,</span> <span class="nx">sku</span> <span class="p">,</span> <span class="nx">quantity</span><span class="p">);</span>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'product'</span><span class="p">,</span> <span class="nx">pid</span><span class="p">,</span> <span class="nx">associated_ids</span><span class="p">);</span>
+
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'product'</span><span class="p">,</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'YZ1546A'</span><span class="p">]);</span>
 </pre>
 
 <blockquote>
 <p>Script js:</p>
 </blockquote>
 <pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
-<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'inventory'</span><span class="p">,</span> <span class="nx">product_id</span> <span class="p">,</span> <span class="nx">sku</span> <span class="p">,</span> <span class="nx">quantity</span> <span class="p">]);</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'product'</span><span class="p">,</span> <span class="nx">pid</span><span class="p">,</span> <span class="nx">associated_ids</span><span class="p">]);</span>
+
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'product'</span><span class="p">,</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'YZ1546A'</span><span class="p">]]);</span>
+</pre>
+
+<p>Send us product view details. It will help us provide you with better analysis.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>The type of event to track(&lsquo;product&rsquo; in this case)</td>
+</tr>
+<tr>
+<td>pid</td>
+<td>Product ID. The unique identifier of the product you want us to track.</td>
+</tr>
+<tr>
+<td>associated_ids</td>
+<td>The array of associated product ids</td>
+</tr>
+</tbody></table>
+
+<h3 id="associated-ids">Associated IDs</h3>
+
+<p>Array of associated products</p>
+
+<p>Example: [pid1, pid2, &hellip;.]</p>
+
+<h2 id="track-add-to-cart-event">Track Add To Cart Event</h2>
+
+<blockquote>
+<p>SDK js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'addtocart'</span><span class="p">,</span> <span class="nx">pid</span><span class="p">,</span> <span class="nx">sku</span><span class="p">,</span> <span class="nx">parent_pid</span><span class="p">,</span> <span class="nx">qty</span><span class="p">,</span> <span class="nx">bundle</span><span class="p">);</span>
+
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'addtocart'</span><span class="p">,</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'AB1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'AB1546ASML'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">159</span><span class="p">},</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'D1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'D1546AML'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">200</span><span class="p">}]);</span>
+</pre>
+
+<blockquote>
+<p>Script js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'addtocart'</span><span class="p">,</span> <span class="nx">pid</span><span class="p">,</span> <span class="nx">sku</span><span class="p">,</span> <span class="nx">parent_pid</span><span class="p">,</span> <span class="nx">qty</span><span class="p">,</span> <span class="nx">bundle</span><span class="p">]);</span>
+
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'addtocart'</span><span class="p">,</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'AB1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'AB1546ASML'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">159</span><span class="p">},</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'D1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'D1546AML'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">200</span><span class="p">}]]);</span>
+</pre>
+
+<p>Send us add to cart details. It will help us provide you with better analysis.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>The type of event to track(&lsquo;addtocart&rsquo; in this case)</td>
+</tr>
+<tr>
+<td>pid</td>
+<td>Product ID. The unique identifier of the product of the product you want us to track.</td>
+</tr>
+<tr>
+<td>parent_pid</td>
+<td>Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>The sku of the item</td>
+</tr>
+<tr>
+<td>qty</td>
+<td>The quantity of items remaining in the stock</td>
+</tr>
+<tr>
+<td>bundle</td>
+<td>The array of items in bundle</td>
+</tr>
+</tbody></table>
+
+<h3 id="bundle">Bundle</h3>
+
+<p>Array of individual products incase of bundle product</p>
+
+<p>Example: [{pid: pid, sku: sku, price: price}, &hellip;.]</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pid</td>
+<td>Product ID. The unique identifier of the product of the product you want us to track.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>The sku of the item</td>
+</tr>
+<tr>
+<td>price</td>
+<td>The price of product</td>
+</tr>
+</tbody></table>
+
+<h2 id="track-cart-info">Track Cart Info</h2>
+
+<blockquote>
+<p>SDK js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'bag'</span><span class="p">,</span> <span class="s1">'mwdirect'</span><span class="p">,</span> <span class="nx">products</span><span class="p">);</span>
+
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'bag'</span><span class="p">,</span> <span class="s1">'mwdirect'</span><span class="p">,</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">}]}]);</span>
+</pre>
+
+<blockquote>
+<p>Script js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'bag'</span><span class="p">,</span> <span class="s1">'mwdirect'</span><span class="p">,</span> <span class="nx">products</span><span class="p">]);</span>
+
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'bag'</span><span class="p">,</span> <span class="s1">'mwdirect'</span><span class="p">,</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">}]}]]);</span>
+</pre>
+
+<p>Send us cart details. It will help us provide you with better analysis.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>The type of event to track(&lsquo;bag&rsquo; in this case)</td>
+</tr>
+<tr>
+<td>products</td>
+<td>The products inside cart which you want us to track.</td>
+</tr>
+</tbody></table>
+
+<h3 id="items">Items</h3>
+
+<p>Array of products in the cart</p>
+
+<p>Example: [{pid: pid, sku: sku, qty: qty, price: price, parent_pid: parent_pid, bundle: bundle}, &hellip;.]</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pid</td>
+<td>Product ID The unique identifier of the product of the product you want us to track.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>The sku of the item</td>
+</tr>
+<tr>
+<td>qty</td>
+<td>The quantity of items</td>
+</tr>
+<tr>
+<td>price</td>
+<td>The price of product</td>
+</tr>
+<tr>
+<td>parent_pid</td>
+<td>Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track.</td>
+</tr>
+<tr>
+<td>bundle</td>
+<td>The array of items in bundle</td>
+</tr>
+</tbody></table>
+
+<h2 id="track-buy-event">Track Buy Event</h2>
+
+<blockquote>
+<p>SDK js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'buy'</span><span class="p">,</span> <span class="s1">'mwdirect'</span><span class="p">,</span> <span class="nx">products</span><span class="p">);</span>
+
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'buy'</span><span class="p">,</span> <span class="s1">'mwdirect'</span><span class="p">,</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">}]}]);</span>
+</pre>
+
+<blockquote>
+<p>Script js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'buy'</span><span class="p">,</span> <span class="s1">'mwdirect'</span><span class="p">,</span> <span class="nx">products</span><span class="p">]);</span>
+
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'bag'</span><span class="p">,</span> <span class="s1">'mwdirect'</span><span class="p">,</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">}]}]]);</span>
+</pre>
+
+<p>Send us purchase details. It will help us provide you with better analysis.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>The type of event to track(&lsquo;buy&rsquo; in this case)</td>
+</tr>
+<tr>
+<td>products</td>
+<td>The list of ordered products you want us to track.</td>
+</tr>
+</tbody></table>
+
+<h3 id="items">Items</h3>
+
+<p>Array of products bought</p>
+
+<p>Example: [{pid: pid, sku: sku, qty: qty, price: price, parent_pid: parent_pid, bundle: bundle}, &hellip;.]</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pid</td>
+<td>Product ID. The unique identifier of the product of the product you want us to track.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>The sku of the item</td>
+</tr>
+<tr>
+<td>qty</td>
+<td>The quantity of items</td>
+</tr>
+<tr>
+<td>price</td>
+<td>The price of product</td>
+</tr>
+<tr>
+<td>parent_pid</td>
+<td>Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track.</td>
+</tr>
+<tr>
+<td>bundle</td>
+<td>The array of items in bundle</td>
+</tr>
+</tbody></table>
+
+<h2 id="set-product-inventory">Set Product Inventory</h2>
+
+<blockquote>
+<p>SDK js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">inventory</span><span class="p">(</span><span class="nx">pid</span><span class="p">,</span> <span class="nx">sku</span> <span class="p">,</span> <span class="nx">quantity</span><span class="p">);</span>
+
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">inventory</span><span class="p">(</span><span class="s1">'RKG'</span><span class="p">,</span> <span class="s1">'RKG1'</span> <span class="p">,</span> <span class="mi">45</span><span class="p">);</span>
+</pre>
+
+<blockquote>
+<p>Script js:</p>
+</blockquote>
+<pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'inventory'</span><span class="p">,</span> <span class="nx">pid</span> <span class="p">,</span> <span class="nx">sku</span> <span class="p">,</span> <span class="nx">quantity</span> <span class="p">]);</span>
+
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'RKG'</span><span class="p">,</span> <span class="s1">'RKG1'</span> <span class="p">,</span> <span class="mi">45</span><span class="p">]);</span>
 </pre>
 
 <blockquote>
 <p>REST:</p>
 </blockquote>
-<pre class="highlight shell">https://api.minewhat.com/v1/updateinv/?c<span class="o">=</span>customer_id&amp;pid<span class="o">=</span>product_id&amp;sku<span class="o">=</span>sku&amp;qty<span class="o">=</span>quantity
+<pre class="highlight shell">https://api.minewhat.com/v1/updateinv/?pid<span class="o">=</span>pid&amp;sku<span class="o">=</span>sku&amp;qty<span class="o">=</span>qty
+
+Example https://api.minewhat.com/v1/updateinv/?pid<span class="o">=</span>RKG&amp;sku<span class="o">=</span>RKG1&amp;qty<span class="o">=</span>45
 </pre>
 
 <p>Send us inventory details for all the products. It will help us provide you with better analysis on what to keep on in your inventory so that you never run out of stock or pile it up.</p>
@@ -63,19 +361,15 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>customer_id</td>
-<td>The unique identifier of the customer.Only used in REST calls, JS call internally use it.</td>
-</tr>
-<tr>
-<td>product_id</td>
-<td>The unique identifier of the product of the product you want us to track.</td>
+<td>pid</td>
+<td>Product ID. The unique identifier of the product of the product you want us to track.</td>
 </tr>
 <tr>
 <td>sku</td>
 <td>The sku of the item</td>
 </tr>
 <tr>
-<td>quantity</td>
+<td>qty</td>
 <td>The quantity of items remaining in the stock</td>
 </tr>
 </tbody></table>
@@ -86,6 +380,8 @@
 <p>SDK js:</p>
 </blockquote>
 <pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">setuser</span><span class="p">(</span><span class="nx">email_id</span><span class="p">);</span>
+
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">setuser</span><span class="p">(</span><span class="s1">'abc@gmail.com'</span><span class="p">);</span>
 </pre>
 
 <blockquote>
@@ -93,12 +389,8 @@
 </blockquote>
 <pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
 <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'setUser'</span><span class="p">,</span> <span class="nx">email_id</span><span class="p">]);</span>
-</pre>
 
-<blockquote>
-<p>REST:</p>
-</blockquote>
-<pre class="highlight shell">https://api.minewhat.com/v1/updateCustomerInfo/?c<span class="o">=</span>customer_id&amp;uid<span class="o">=</span>user_id&amp;email<span class="o">=</span>email_id
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'setUser'</span><span class="p">,</span> <span class="s1">'abc@gmail.com'</span><span class="p">]);</span>
 </pre>
 
 <p>Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.</p>
@@ -123,19 +415,17 @@
 <p>SDK js:</p>
 </blockquote>
 <pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">orderStatus</span><span class="p">(</span><span class="nx">email_id</span><span class="p">,</span> <span class="nx">order_id</span><span class="p">,</span> <span class="nx">order_status</span><span class="p">);</span>
+
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">orderStatus</span><span class="p">(</span><span class="s1">'abc@gmail.com'</span><span class="p">,</span> <span class="s1">'fgrds354jd'</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 </pre>
 
 <blockquote>
 <p>Script js:</p>
 </blockquote>
 <pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
-<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'orderStatus'</span><span class="p">,</span><span class="nx">email_id</span><span class="p">,</span> <span class="nx">order_id</span><span class="p">,</span> <span class="nx">order_status</span> <span class="p">]);</span>
-</pre>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'orderStatus'</span><span class="p">,</span> <span class="nx">email_id</span><span class="p">,</span> <span class="nx">order_id</span><span class="p">,</span> <span class="nx">order_status</span> <span class="p">]);</span>
 
-<blockquote>
-<p>REST:</p>
-</blockquote>
-<pre class="highlight shell">https://api.minewhat.com/v1/updateOrderInfo/?c<span class="o">=</span>customer_id&amp;email<span class="o">=</span>email_id&amp;order<span class="o">=</span>order_id&amp;status<span class="o">=</span>order_status
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'orderStatus'</span><span class="p">,</span> <span class="s1">'abc@gmail.com'</span><span class="p">,</span> <span class="s1">'fgrds354jd'</span><span class="p">,</span> <span class="mi">0</span><span class="p">]);</span>
 </pre>
 
 <p>Users might be visiting your website to check the order status. We can guide while they are at it. Send us order status details when a user lands on your page.</p>
@@ -163,6 +453,146 @@
 </tbody></table>
 
           <h1 id="automation">Automation</h1>
+
+<h2 id="get-list-of-insights">Get List of Insights</h2>
+
+<blockquote>
+<p>API shell:</p>
+</blockquote>
+<pre class="highlight shell">curl -u apikey:X -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api.minewhat.com/v1/insights/getall
+
+<span class="o">[{</span>id: <span class="s2">"4"</span>, name: <span class="s2">"Products under Designer Collection that were viewed via search more often"</span>, metric: <span class="s2">"searchviews"</span>, segmentName: <span class="s2">"All Shoppers"</span>, segmentId: <span class="s2">"2"</span><span class="o">}</span>, ...]
+</pre>
+
+<p>You can get all the insights you have created or system created with this API.</p>
+
+<h3 id="parameters/filters">Parameters/Filters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>Type of Insight ( insight )</td>
+</tr>
+<tr>
+<td>id</td>
+<td>The exact id of the Insight</td>
+</tr>
+<tr>
+<td>metric</td>
+<td>views/purchases/revenue/avgtimespent/conversionrate</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Response of an insight list call</p>
+
+<p>[{id: id, name: name, metric: metric, segmentName: segmentName, segmentId: segmentId}, &hellip;]</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The exact id of the Insight</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Name of the insight,</td>
+</tr>
+<tr>
+<td>metric</td>
+<td>The metric of the insight</td>
+</tr>
+<tr>
+<td>segmentName</td>
+<td>The segment name associated with the insight</td>
+</tr>
+<tr>
+<td>segmentId</td>
+<td>The segment id associated with the insight</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-items-of-an-insight">Get Items of an Insight</h2>
+
+<blockquote>
+<p>API shell:</p>
+</blockquote>
+<pre class="highlight shell">curl -u apikey:X -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api.minewhat.com/v1/insights/getdata
+
+<span class="o">[{</span>id: <span class="s2">"12"</span>, name: <span class="s2">"Most Converting Products From Mobile"</span> , metric: <span class="s2">"conversionrate"</span>, segmentName: <span class="s2">"Shoppers from mobile"</span>, segmentId: <span class="s2">"25"</span><span class="o">}</span>, ...]
+</pre>
+
+<p>You can get all the items of the insights so that you can connect back to any automation systems like Email, Landing Page automation etc</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The unique identifier of the insight (obtained with getall call)</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Response of an insight call </p>
+
+<p>[{id: product_id, name: product_name, sku: sku, price: price, views: views, purchases: purchases, revenue: revenue, duration: {from: fromDate, to: toDate}}, &hellip;]</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>product_id</td>
+<td>The unique identifier of the product.</td>
+</tr>
+<tr>
+<td>product_name</td>
+<td>Name of the product</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>The sku of the item</td>
+</tr>
+<tr>
+<td>price</td>
+<td>The price of product</td>
+</tr>
+<tr>
+<td>views</td>
+<td>Views of the product for the selected duration</td>
+</tr>
+<tr>
+<td>purchases</td>
+<td>Purchases of the product for the selected duration</td>
+</tr>
+<tr>
+<td>revenue</td>
+<td>Revenue from the product for the selected duration</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>The duration for which above metric were achieved</td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">
