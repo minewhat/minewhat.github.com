@@ -44,18 +44,18 @@
 <blockquote>
 <p>SDK js:</p>
 </blockquote>
-<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'quickview'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">pLink</span><span class="p">:</span> <span class="nx">pLink</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="nx">url</span><span class="p">});</span>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'quickview'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">pLink</span><span class="p">:</span> <span class="nx">pLink</span><span class="p">});</span>
 
-<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'quickview'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">pLink</span><span class="p">:</span> <span class="s1">'www.yourstore.com/pid/12'</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="s1">'www.yourstore.com/cat/14'</span><span class="p">});</span>
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'quickview'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">pLink</span><span class="p">:</span> <span class="s1">'www.yourstore.com/pid/12'</span><span class="p">});</span>
 </pre>
 
 <blockquote>
 <p>Script js:</p>
 </blockquote>
 <pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
-<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'quickview'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">pLink</span><span class="p">:</span> <span class="nx">pLink</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="nx">url</span><span class="p">}]);</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'quickview'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">pLink</span><span class="p">:</span> <span class="nx">pLink</span><span class="p">}]);</span>
 
-<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'quickview'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">pLink</span><span class="p">:</span> <span class="s1">'www.yourstore.com/pid/12'</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="s1">'www.yourstore.com/cat/14'</span><span class="p">}]);</span>
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'quickview'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">pLink</span><span class="p">:</span> <span class="s1">'www.yourstore.com/pid/12'</span><span class="p">}]);</span>
 </pre>
 
 <p>Send us product quick view details. It will help us provide you with better analysis.</p>
@@ -76,10 +76,6 @@
 <td>pLink</td>
 <td>The product link</td>
 </tr>
-<tr>
-<td>url</td>
-<td>URL of the current page</td>
-</tr>
 </tbody></table>
 
 <h2 id="track-product-view-event">Track Product View Event</h2>
@@ -87,18 +83,18 @@
 <blockquote>
 <p>SDK js:</p>
 </blockquote>
-<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'product'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">associated_ids</span><span class="p">:</span> <span class="nx">associated_ids</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="nx">url</span><span class="p">});</span>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'product'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">associated_ids</span><span class="p">:</span> <span class="nx">associated_ids</span><span class="p">});</span>
 
-<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'product'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">associated_ids</span><span class="p">:</span> <span class="p">[</span><span class="s1">'YZ1546A'</span><span class="p">],</span> <span class="na">url</span><span class="p">:</span> <span class="s1">'www.yourstore.com/pid/14'</span><span class="p">});</span>
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'product'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">associated_ids</span><span class="p">:</span> <span class="p">[</span><span class="s1">'YZ1546A'</span><span class="p">]});</span>
 </pre>
 
 <blockquote>
 <p>Script js:</p>
 </blockquote>
 <pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
-<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'product'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">associated_ids</span><span class="p">:</span> <span class="nx">associated_ids</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="nx">url</span><span class="p">}]);</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'product'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">associated_ids</span><span class="p">:</span> <span class="nx">associated_ids</span><span class="p">}]);</span>
 
-<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'product'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">associated_ids</span><span class="p">:</span> <span class="p">[</span><span class="s1">'YZ1546A'</span><span class="p">],</span> <span class="na">url</span><span class="p">:</span> <span class="s1">'www.yourstore.com/pid/14'</span><span class="p">}]);</span>
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'product'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">associated_ids</span><span class="p">:</span> <span class="p">[</span><span class="s1">'YZ1546A'</span><span class="p">]}]);</span>
 </pre>
 
 <p>Send us product view details. It will help us provide you with better analysis.</p>
@@ -119,10 +115,6 @@
 <td>associated_ids</td>
 <td>The array of associated product ids</td>
 </tr>
-<tr>
-<td>url</td>
-<td>URL of the current page</td>
-</tr>
 </tbody></table>
 
 <h3 id="associated-ids">Associated IDs</h3>
@@ -136,18 +128,18 @@
 <blockquote>
 <p>SDK js:</p>
 </blockquote>
-<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'addtocart'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="nx">sku</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="nx">parent_pid</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="nx">qty</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="nx">bundle</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="nx">url</span><span class="p">});</span>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'addtocart'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="nx">sku</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="nx">parent_pid</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="nx">qty</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="nx">bundle</span><span class="p">});</span>
 
-<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'addtocart'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'AB1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'AB1546ASML'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">159</span><span class="p">},</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'D1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'D1546AML'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">200</span><span class="p">}],</span> <span class="na">url</span><span class="p">:</span> <span class="s1">'www.yourstore.com/pid/14'</span><span class="p">});</span>
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'addtocart'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'AB1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'AB1546ASML'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">159</span><span class="p">},</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'D1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'D1546AML'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">200</span><span class="p">}]});</span>
 </pre>
 
 <blockquote>
 <p>Script js:</p>
 </blockquote>
 <pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
-<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'addtocart'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="nx">sku</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="nx">parent_pid</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="nx">qty</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="nx">bundle</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="nx">url</span><span class="p">}]);</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'addtocart'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="nx">sku</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="nx">parent_pid</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="nx">qty</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="nx">bundle</span><span class="p">}]);</span>
 
-<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'addtocart'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'AB1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'AB1546ASML'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">159</span><span class="p">},</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'D1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'D1546AML'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">200</span><span class="p">}],</span> <span class="na">url</span><span class="p">:</span> <span class="s1">'www.yourstore.com/pid/14'</span><span class="p">}]);</span>
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'addtocart'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'AB1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'AB1546ASML'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">159</span><span class="p">},</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'D1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'D1546AML'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">200</span><span class="p">}]}]);</span>
 </pre>
 
 <p>Send us add to cart details. It will help us provide you with better analysis.</p>
@@ -179,10 +171,6 @@
 <tr>
 <td>bundle</td>
 <td>The array of items in bundle</td>
-</tr>
-<tr>
-<td>url</td>
-<td>URL of the current page</td>
 </tr>
 </tbody></table>
 
@@ -217,18 +205,18 @@
 <blockquote>
 <p>SDK js:</p>
 </blockquote>
-<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'bag'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="nx">products</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="nx">url</span><span class="p">});</span>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'bag'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="nx">products</span><span class="p">});</span>
 
-<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'bag'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">}]}],</span> <span class="na">url</span><span class="p">:</span> <span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="s1">'www.yourstore.com/cart/dfg576'</span><span class="p">});</span>
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'bag'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">}]}]});</span>
 </pre>
 
 <blockquote>
 <p>Script js:</p>
 </blockquote>
 <pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
-<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'bag'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="nx">products</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="nx">url</span><span class="p">}]);</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'bag'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="nx">products</span><span class="p">}]);</span>
 
-<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'bag'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">}]}],</span> <span class="na">url</span><span class="p">:</span> <span class="s1">'www.yourstore.com/cart/dfg576'</span><span class="p">}]);</span>
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'bag'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">}]}]}]);</span>
 </pre>
 
 <p>Send us cart details. It will help us provide you with better analysis.</p>
@@ -244,10 +232,6 @@
 <tr>
 <td>products</td>
 <td>The products inside cart which you want us to track.</td>
-</tr>
-<tr>
-<td>url</td>
-<td>URL of the current page</td>
 </tr>
 </tbody></table>
 
@@ -294,18 +278,18 @@
 <blockquote>
 <p>SDK js:</p>
 </blockquote>
-<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'buy'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="nx">products</span><span class="p">,</span> <span class="na">coupons</span><span class="p">:</span> <span class="nx">coupons</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="nx">url</span><span class="p">});</span>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'buy'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="nx">products</span><span class="p">,</span> <span class="na">order</span><span class="p">:</span> <span class="nx">order</span><span class="p">});</span>
 
-<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'buy'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">}]}],</span> <span class="na">coupons</span><span class="p">:</span> <span class="p">[{</span><span class="na">code</span><span class="p">:</span> <span class="s2">"ABDFGERSA123"</span><span class="p">,</span> <span class="na">savings</span><span class="p">:</span> <span class="mi">345</span><span class="p">}],</span> <span class="na">url</span><span class="p">:</span> <span class="s1">'www.yourstore.com/checkout/success'</span><span class="p">});</span>
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'buy'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">}]}],</span> <span class="na">order</span><span class="p">:</span> <span class="p">[{</span><span class="na">order_number</span><span class="p">:</span> <span class="s2">"ABDFGERSA123"</span><span class="p">,</span> <span class="na">email</span><span class="p">:</span> <span class="s2">"abc@gmail.com"</span><span class="p">,</span> <span class="na">created_at</span><span class="p">:</span> <span class="s2">"2016-05-12 12:00:12 5.5"</span><span class="p">}]});</span>
 </pre>
 
 <blockquote>
 <p>Script js:</p>
 </blockquote>
 <pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
-<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'buy'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="nx">products</span><span class="p">,</span> <span class="na">coupons</span><span class="p">:</span> <span class="nx">coupons</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="nx">url</span><span class="p">}]);</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'buy'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="nx">products</span><span class="p">,</span> <span class="na">order</span><span class="p">:</span> <span class="nx">order</span><span class="p">}]);</span>
 
-<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'buy'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">}]}],</span> <span class="na">coupons</span><span class="p">:</span> <span class="p">[{</span><span class="na">code</span><span class="p">:</span> <span class="s2">"ABDFGERSA123"</span><span class="p">,</span> <span class="na">savings</span><span class="p">:</span> <span class="mi">345</span><span class="p">}],</span> <span class="na">url</span><span class="p">:</span> <span class="s1">'www.yourstore.com/checkout/success'</span><span class="p">}]);</span>
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'buy'</span><span class="p">,</span> <span class="p">{</span><span class="na">products</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">qty</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">,</span> <span class="na">parent_pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">bundle</span><span class="p">:</span> <span class="p">[{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546A'</span><span class="p">,</span> <span class="na">sku</span><span class="p">:</span> <span class="s1">'YZ1546ALRG'</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="mi">359</span><span class="p">}]}],</span> <span class="na">order</span><span class="p">:</span> <span class="p">[{</span><span class="na">order_number</span><span class="p">:</span> <span class="s2">"ABDFGERSA123"</span><span class="p">,</span> <span class="na">email</span><span class="p">:</span> <span class="s2">"abc@gmail.com"</span><span class="p">,</span> <span class="na">created_at</span><span class="p">:</span> <span class="s2">"2016-05-12 12:00:12 5.5"</span><span class="p">}]}]);</span>
 </pre>
 
 <p>Send us purchase details. It will help us provide you with better analysis.</p>
@@ -323,12 +307,8 @@
 <td>The list of ordered products you want us to track.</td>
 </tr>
 <tr>
-<td>coupons</td>
-<td>The list of coupons applied in the order</td>
-</tr>
-<tr>
-<td>url</td>
-<td>URL of the current page</td>
+<td>order</td>
+<td>The order details</td>
 </tr>
 </tbody></table>
 
@@ -370,7 +350,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="coupons">Coupons</h3>
+<h3 id="order">Order</h3>
 
 <table><thead>
 <tr>
@@ -379,12 +359,16 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>code</td>
-<td>The coupon code applied in the order</td>
+<td>order_number</td>
+<td>The unique order number</td>
 </tr>
 <tr>
-<td>savings</td>
-<td>The savings on the coupon</td>
+<td>email</td>
+<td>The email id of user who made the order</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>The time of order in the format YYYY-MM-DD hh:mm:ss tz</td>
 </tr>
 </tbody></table>
 
