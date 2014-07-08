@@ -428,18 +428,18 @@ Example https://api.minewhat.com/v1/updateinv/?pid<span class="o">=</span>RKG&am
 <blockquote>
 <p>SDK js:</p>
 </blockquote>
-<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">setuser</span><span class="p">(</span><span class="nx">email_id</span><span class="p">);</span>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackUser</span><span class="p">(</span><span class="nx">email_id</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
 
-<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">setuser</span><span class="p">(</span><span class="s1">'abc@gmail.com'</span><span class="p">);</span>
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackUser</span><span class="p">(</span><span class="s1">'abc@gmail.com'</span><span class="p">,</span> <span class="p">{</span><span class="na">tags</span><span class="p">:</span> <span class="p">[</span><span class="s2">"premiumuser"</span><span class="p">,</span> <span class="s2">"above60"</span><span class="p">]});</span>
 </pre>
 
 <blockquote>
 <p>Script js:</p>
 </blockquote>
 <pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
-<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'setUser'</span><span class="p">,</span> <span class="nx">email_id</span><span class="p">]);</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackUser'</span><span class="p">,</span> <span class="nx">email_id</span><span class="p">,</span> <span class="nx">data</span><span class="p">]);</span>
 
-<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'setUser'</span><span class="p">,</span> <span class="s1">'abc@gmail.com'</span><span class="p">]);</span>
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackUser'</span><span class="p">,</span> <span class="s1">'abc@gmail.com'</span><span class="p">,</span> <span class="p">{</span><span class="na">tags</span><span class="p">:</span> <span class="p">[</span><span class="s2">"premiumuser"</span><span class="p">,</span> <span class="s2">"above60"</span><span class="p">]}]);</span>
 </pre>
 
 <p>Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.</p>
@@ -455,6 +455,10 @@ Example https://api.minewhat.com/v1/updateinv/?pid<span class="o">=</span>RKG&am
 <tr>
 <td>email_id</td>
 <td>Email Id of the signed in customer</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>Array of user tags you want us to track</td>
 </tr>
 </tbody></table>
 
