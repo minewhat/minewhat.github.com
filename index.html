@@ -39,26 +39,26 @@
 
           <h1 id="collection">Collection</h1>
 
-<h2 id="track-product-quick-view-event">Track Product Quick View Event</h2>
+<h2 id="set-customer-email">Set Customer Email</h2>
 
 <blockquote>
 <p>SDK js:</p>
 </blockquote>
-<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'quickview'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">pLink</span><span class="p">:</span> <span class="nx">pLink</span><span class="p">});</span>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackUser</span><span class="p">(</span><span class="nx">email_id</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
 
-<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'quickview'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">pLink</span><span class="p">:</span> <span class="s1">'www.yourstore.com/pid/12'</span><span class="p">});</span>
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackUser</span><span class="p">(</span><span class="s1">'abc@gmail.com'</span><span class="p">,</span> <span class="p">{</span><span class="na">tags</span><span class="p">:</span> <span class="p">[</span><span class="s2">"premiumuser"</span><span class="p">,</span> <span class="s2">"above60"</span><span class="p">]});</span>
 </pre>
 
 <blockquote>
 <p>Script js:</p>
 </blockquote>
 <pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
-<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'quickview'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">pLink</span><span class="p">:</span> <span class="nx">pLink</span><span class="p">}]);</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackUser'</span><span class="p">,</span> <span class="nx">email_id</span><span class="p">,</span> <span class="nx">data</span><span class="p">]);</span>
 
-<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'quickview'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">pLink</span><span class="p">:</span> <span class="s1">'www.yourstore.com/pid/12'</span><span class="p">}]);</span>
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackUser'</span><span class="p">,</span> <span class="s1">'abc@gmail.com'</span><span class="p">,</span> <span class="p">{</span><span class="na">tags</span><span class="p">:</span> <span class="p">[</span><span class="s2">"premiumuser"</span><span class="p">,</span> <span class="s2">"above60"</span><span class="p">]}]);</span>
 </pre>
 
-<p>Send us product quick view details. It will help us provide you with better analysis.</p>
+<p>Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -69,12 +69,12 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>pid</td>
-<td>Product ID. The unique identifier of the product you want us to track.</td>
+<td>email_id</td>
+<td>Email Id of the signed in customer</td>
 </tr>
 <tr>
-<td>pLink</td>
-<td>The product link</td>
+<td>tags</td>
+<td>Array of user tags you want us to track</td>
 </tr>
 </tbody></table>
 
@@ -109,7 +109,7 @@
 </thead><tbody>
 <tr>
 <td>pid</td>
-<td>Product ID. The unique identifier of the product you want us to track.</td>
+<td>Product ID. The unique identifier of the product you want us to track</td>
 </tr>
 <tr>
 <td>associated_ids</td>
@@ -154,11 +154,11 @@
 </thead><tbody>
 <tr>
 <td>pid</td>
-<td>Product ID. The unique identifier of the product of the product you want us to track.</td>
+<td>Product ID. The unique identifier of the product of the product you want us to track</td>
 </tr>
 <tr>
 <td>parent_pid</td>
-<td>Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track.</td>
+<td>Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track</td>
 </tr>
 <tr>
 <td>sku</td>
@@ -188,7 +188,7 @@
 </thead><tbody>
 <tr>
 <td>pid</td>
-<td>Product ID. The unique identifier of the product of the product you want us to track.</td>
+<td>Product ID. The unique identifier of the product of the product you want us to track</td>
 </tr>
 <tr>
 <td>sku</td>
@@ -231,7 +231,7 @@
 </thead><tbody>
 <tr>
 <td>products</td>
-<td>The products inside cart which you want us to track.</td>
+<td>The products inside cart which you want us to track</td>
 </tr>
 </tbody></table>
 
@@ -249,7 +249,7 @@
 </thead><tbody>
 <tr>
 <td>pid</td>
-<td>Product ID The unique identifier of the product of the product you want us to track.</td>
+<td>Product ID The unique identifier of the product of the product you want us to track</td>
 </tr>
 <tr>
 <td>sku</td>
@@ -265,7 +265,7 @@
 </tr>
 <tr>
 <td>parent_pid</td>
-<td>Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track.</td>
+<td>Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track</td>
 </tr>
 <tr>
 <td>bundle</td>
@@ -304,7 +304,7 @@
 </thead><tbody>
 <tr>
 <td>products</td>
-<td>The list of ordered products you want us to track.</td>
+<td>The list of ordered products you want us to track</td>
 </tr>
 <tr>
 <td>order</td>
@@ -326,7 +326,7 @@
 </thead><tbody>
 <tr>
 <td>pid</td>
-<td>Product ID. The unique identifier of the product of the product you want us to track.</td>
+<td>Product ID. The unique identifier of the product of the product you want us to track</td>
 </tr>
 <tr>
 <td>sku</td>
@@ -342,7 +342,7 @@
 </tr>
 <tr>
 <td>parent_pid</td>
-<td>Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track.</td>
+<td>Parent Product ID. The unique identifier of the parent product(incase of variant products) you want us to track</td>
 </tr>
 <tr>
 <td>bundle</td>
@@ -372,34 +372,26 @@
 </tr>
 </tbody></table>
 
-<h2 id="set-product-inventory">Set Product Inventory</h2>
+<h2 id="track-product-custom-event">Track Product Custom Event</h2>
 
 <blockquote>
 <p>SDK js:</p>
 </blockquote>
-<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">inventory</span><span class="p">(</span><span class="nx">pid</span><span class="p">,</span> <span class="nx">sku</span> <span class="p">,</span> <span class="nx">quantity</span><span class="p">);</span>
+<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'custom'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">metric</span><span class="p">:</span> <span class="nx">metric</span><span class="p">,</span> <span class="na">attribute</span><span class="p">:</span> <span class="nx">attribute</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="nx">url</span><span class="p">});</span>
 
-<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">inventory</span><span class="p">(</span><span class="s1">'RKG'</span><span class="p">,</span> <span class="s1">'RKG1'</span> <span class="p">,</span> <span class="mi">45</span><span class="p">);</span>
+<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">'custom'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">metric</span><span class="p">:</span> <span class="s1">'quickview'</span><span class="p">,</span> <span class="na">attribute</span><span class="p">:</span> <span class="p">{</span><span class="na">collection</span><span class="p">:</span> <span class="s1">'50%SALE_PAGE'</span><span class="p">},</span> <span class="na">url</span><span class="p">:</span> <span class="s1">'www.yourstore.com/pid/12'</span><span class="p">});</span>
 </pre>
 
 <blockquote>
 <p>Script js:</p>
 </blockquote>
 <pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
-<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'inventory'</span><span class="p">,</span> <span class="nx">pid</span> <span class="p">,</span> <span class="nx">sku</span> <span class="p">,</span> <span class="nx">quantity</span> <span class="p">]);</span>
+<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'custom'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="nx">pid</span><span class="p">,</span> <span class="na">metric</span><span class="p">:</span> <span class="nx">metric</span><span class="p">,</span> <span class="na">attribute</span><span class="p">:</span> <span class="nx">attribute</span><span class="p">,</span> <span class="na">url</span><span class="p">:</span> <span class="nx">url</span><span class="p">}]);</span>
 
-<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'RKG'</span><span class="p">,</span> <span class="s1">'RKG1'</span> <span class="p">,</span> <span class="mi">45</span><span class="p">]);</span>
+<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackEvent'</span><span class="p">,</span> <span class="s1">'custom'</span><span class="p">,</span> <span class="p">{</span><span class="na">pid</span><span class="p">:</span> <span class="s1">'YZ1546'</span><span class="p">,</span> <span class="na">metric</span><span class="p">:</span> <span class="s1">'quickview'</span><span class="p">,</span> <span class="na">attribute</span><span class="p">:</span> <span class="p">{</span><span class="na">collection</span><span class="p">:</span> <span class="s1">'50%SALE_PAGE'</span><span class="p">},</span> <span class="na">url</span><span class="p">:</span> <span class="s1">'www.yourstore.com/pid/12'</span><span class="p">}]);</span>
 </pre>
 
-<blockquote>
-<p>REST:</p>
-</blockquote>
-<pre class="highlight shell">https://api.minewhat.com/v1/updateinv/?pid<span class="o">=</span>pid&amp;sku<span class="o">=</span>sku&amp;qty<span class="o">=</span>qty
-
-Example https://api.minewhat.com/v1/updateinv/?pid<span class="o">=</span>RKG&amp;sku<span class="o">=</span>RKG1&amp;qty<span class="o">=</span>45
-</pre>
-
-<p>Send us inventory details for all the products. It will help us provide you with better analysis on what to keep on in your inventory so that you never run out of stock or pile it up.</p>
+<p>Send us custom events to track.</p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -411,99 +403,27 @@ Example https://api.minewhat.com/v1/updateinv/?pid<span class="o">=</span>RKG&am
 </thead><tbody>
 <tr>
 <td>pid</td>
-<td>Product ID. The unique identifier of the product of the product you want us to track.</td>
+<td>Product ID. The unique identifier of the product you want us to track</td>
 </tr>
 <tr>
-<td>sku</td>
-<td>The sku of the item</td>
+<td>metric</td>
+<td>Custom metric you want us to track</td>
 </tr>
 <tr>
-<td>qty</td>
-<td>The quantity of items remaining in the stock</td>
+<td>attribute</td>
+<td>Custom attribute you want us to track</td>
+</tr>
+<tr>
+<td>url</td>
+<td>The product url</td>
 </tr>
 </tbody></table>
 
-<h2 id="set-customer-email">Set Customer Email</h2>
+<h3 id="attribute">Attribute</h3>
 
-<blockquote>
-<p>SDK js:</p>
-</blockquote>
-<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackUser</span><span class="p">(</span><span class="nx">email_id</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+<p>Object containing attribute and attribute value mapping.</p>
 
-<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">trackUser</span><span class="p">(</span><span class="s1">'abc@gmail.com'</span><span class="p">,</span> <span class="p">{</span><span class="na">tags</span><span class="p">:</span> <span class="p">[</span><span class="s2">"premiumuser"</span><span class="p">,</span> <span class="s2">"above60"</span><span class="p">]});</span>
-</pre>
-
-<blockquote>
-<p>Script js:</p>
-</blockquote>
-<pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
-<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackUser'</span><span class="p">,</span> <span class="nx">email_id</span><span class="p">,</span> <span class="nx">data</span><span class="p">]);</span>
-
-<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'trackUser'</span><span class="p">,</span> <span class="s1">'abc@gmail.com'</span><span class="p">,</span> <span class="p">{</span><span class="na">tags</span><span class="p">:</span> <span class="p">[</span><span class="s2">"premiumuser"</span><span class="p">,</span> <span class="s2">"above60"</span><span class="p">]}]);</span>
-</pre>
-
-<p>Users can clear cache and cookies from browser. Help us associate logged in users with their multiple session online by sending user email when he signs in.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>email_id</td>
-<td>Email Id of the signed in customer</td>
-</tr>
-<tr>
-<td>tags</td>
-<td>Array of user tags you want us to track</td>
-</tr>
-</tbody></table>
-
-<h2 id="set-order-status">Set Order Status</h2>
-
-<blockquote>
-<p>SDK js:</p>
-</blockquote>
-<pre class="highlight javascript"><span class="nx">MWSDK</span><span class="p">.</span><span class="nx">orderStatus</span><span class="p">(</span><span class="nx">email_id</span><span class="p">,</span> <span class="nx">order_number</span><span class="p">,</span> <span class="nx">order_status</span><span class="p">);</span>
-
-<span class="nx">Example</span> <span class="nx">MWSDK</span><span class="p">.</span><span class="nx">orderStatus</span><span class="p">(</span><span class="s1">'abc@gmail.com'</span><span class="p">,</span> <span class="s1">'fgrds354jd'</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-</pre>
-
-<blockquote>
-<p>Script js:</p>
-</blockquote>
-<pre class="highlight javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_mwapi</span> <span class="o">||</span> <span class="p">[];</span>
-<span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'orderStatus'</span><span class="p">,</span> <span class="nx">email_id</span><span class="p">,</span> <span class="nx">order_number</span><span class="p">,</span> <span class="nx">order_status</span> <span class="p">]);</span>
-
-<span class="nx">Example</span> <span class="nx">_mwapi</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">'orderStatus'</span><span class="p">,</span> <span class="s1">'abc@gmail.com'</span><span class="p">,</span> <span class="s1">'fgrds354jd'</span><span class="p">,</span> <span class="mi">0</span><span class="p">]);</span>
-</pre>
-
-<p>Users might be visiting your website to check the order status. We can guide while they are at it. Send us order status details when a user lands on your page.</p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>email_id</td>
-<td>Email Id of the signed in customer</td>
-</tr>
-<tr>
-<td>order_number</td>
-<td>Order number of the signed in customer</td>
-</tr>
-<tr>
-<td>order_status</td>
-<td>Order Status of the Order Id, 0 - RECEIVED , 1 - SHIPPED , 2 - DELIVERED , 3 - RETURN , 4 - RETURN_ACCEPTED</td>
-</tr>
-</tbody></table>
+<p>Example: {&lsquo;collection&rsquo;: &lsquo;50%SALE_PAGE&rsquo;}</p>
 
           <h1 id="automation">Automation</h1>
 
