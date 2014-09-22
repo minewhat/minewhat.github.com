@@ -711,10 +711,10 @@
 <blockquote>
 <p>API shell:</p>
 </blockquote>
-<pre class="highlight shell">curl -H <span class="s2">"MW-Token: &lt;apikey&gt;"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET https://api.minewhat.com/v1/insights
+<pre class="highlight shell">curl -H <span class="s2">"MW-Token: &lt;apikey&gt;"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET https://api.minewhat.com/v1/insights?domain<span class="o">=</span>&lt;domain_key&gt;
 
 Example:
-curl -H <span class="s2">"MW-Token: 123456ab78cd9e01"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET https://api.minewhat.com/v1/insights
+curl -H <span class="s2">"MW-Token: 123456ab78cd9e01"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET https://api.minewhat.com/v1/insights?domain<span class="o">=</span>sandbox_sandbox
 
 Response:
 <span class="o">{</span>status: <span class="s2">"ok"</span>, data: <span class="o">{</span>insights: <span class="o">[{</span>id: <span class="s2">"52eb4b1b8b7a5800000002cd"</span>, name: <span class="s2">"Products under Designer Collection that were viewed via search more often"</span>, metric: <span class="s2">"searchviews"</span>, order: <span class="s2">"topk"</span><span class="o">}</span>, ...]<span class="o">}}</span>
@@ -731,12 +731,16 @@ Response:
 </tr>
 </thead><tbody>
 <tr>
+<td>domain</td>
+<td>domain key</td>
+</tr>
+<tr>
 <td>metric</td>
-<td>views/purchases/revenue/avgtimespent/conversionrate</td>
+<td>views/purchases/revenue/avgtimespent/conversionrate(optional)</td>
 </tr>
 <tr>
 <td>order</td>
-<td>topk/leastk</td>
+<td>topk/leastk(optional)</td>
 </tr>
 </tbody></table>
 
@@ -775,10 +779,10 @@ Response:
 <blockquote>
 <p>API shell:</p>
 </blockquote>
-<pre class="highlight shell">curl -H <span class="s2">"MW-Token: &lt;apikey&gt;"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api.minewhat.com/v1/insights/&lt;insightid&gt;
+<pre class="highlight shell">curl -H <span class="s2">"MW-Token: &lt;apikey&gt;"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api.minewhat.com/v1/insights/&lt;insightid&gt;?domain<span class="o">=</span>&lt;domain_key&gt;
 
 Example:
-curl -H <span class="s2">"MW-Token: 123456ab78cd9e01"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api.minewhat.com/v1/insights/52eb4b1b8b7a5800000002cd
+curl -H <span class="s2">"MW-Token: 123456ab78cd9e01"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api.minewhat.com/v1/insights/52eb4b1b8b7a5800000002cd?domain<span class="o">=</span>sandbox_sandbox
 
 Response:
 <span class="o">{</span>status: <span class="s2">"ok"</span>, data: <span class="o">{</span>id: <span class="s2">"52eb4b1b8b7a5800000002cd"</span> , name: <span class="s2">"Most Converting Products From Mobile"</span> , metric: <span class="s2">"conversionrate"</span>, order: <span class="s2">"topk"</span>, itemtype: <span class="s2">"products"</span>, date: <span class="o">{</span>fromDate: <span class="s2">"2014-08-14"</span>, toDate: <span class="s2">"2014-08-20"</span>, dataValidFrom: <span class="s2">"2014-08-01"</span>, dataValidTo: <span class="s2">"2014-08-25"</span>, format: <span class="s2">"YYYY-MM-DD"</span><span class="o">}</span>, insight: <span class="o">{</span><span class="s2">"all-items"</span>: <span class="o">[{</span>id: <span class="s2">"AX12"</span>, name: <span class="s2">"Blue Jeans"</span>, price: <span class="s2">"</span><span class="nv">$99</span><span class="s2">"</span>, brand: <span class="s2">"dkny"</span>, brandid: 56, categories: <span class="o">[</span><span class="s2">"men"</span>, <span class="s2">"jeans"</span><span class="o">]</span>, categoryids: <span class="o">[</span>2, 34], m1: 2045, m2: 26, m3: 2574, m4: <span class="s2">"1.27%"</span>, m5: 25<span class="o">}</span>, ...]<span class="o">}</span>, metricnames: <span class="o">{</span>m1name: <span class="s2">"Views"</span>, m2name: <span class="s2">"Purchases"</span>, m3name: <span class="s2">"Revenue"</span>, m4name: <span class="s2">"Conversion rate"</span>, m5name: <span class="s2">"Avg. Time Spent"</span><span class="o">}}}</span>
@@ -797,6 +801,10 @@ Response:
 <tr>
 <td>id</td>
 <td>Unique identifier of the insight (obtained with insight list api)</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>domain key</td>
 </tr>
 </tbody></table>
 
